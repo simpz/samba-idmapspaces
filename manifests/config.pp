@@ -57,6 +57,10 @@ class samba::config () inherits samba {
       samba::option { "idmap config ${idmap_domain} : ${idmap_option}":
         value => $idmap_value,
       }
+      # Remove any identical entries without spacing:
+      samba::option { "idmap config ${idmap_domain}:${idmap_option}":
+        value => '',
+      }
     }
   }
 
